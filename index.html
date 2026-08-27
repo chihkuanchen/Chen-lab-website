@@ -396,6 +396,72 @@
             line-height: 1.7;
         }
 
+        /* ==================== ALUMNI SECTION ==================== */
+        .alumni-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 2px solid #e8eef5;
+        }
+
+        .alumni-section h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: var(--primary);
+        }
+
+        .alumni-container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .alumni-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .alumni-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e8eef5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .alumni-item:hover {
+            background-color: #f8f9fc;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-left: -1rem;
+            margin-right: -1rem;
+            padding-left: 2.5rem;
+        }
+
+        .alumni-item:last-child {
+            border-bottom: none;
+        }
+
+        .alumni-name {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.05rem;
+        }
+
+        .alumni-years {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--light);
+            border-radius: 20px;
+            min-width: 150px;
+            text-align: center;
+        }
+
         /* ==================== PUBLICATIONS SECTION ==================== */
         #publications {
             background-color: #fafbfc;
@@ -691,6 +757,16 @@
             section {
                 padding: 3rem 0;
             }
+
+            .alumni-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .alumni-years {
+                width: 100%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -875,6 +951,39 @@
                     <p class="member-bio">
                         B.S. in Biology with expertise in laboratory operations and molecular techniques. Proficient in PCR, cloning, sequencing, and cell culture. Ensures smooth lab operations and equipment maintenance.
                     </p>
+                </div>
+            </div>
+
+            <!-- ==================== ALUMNI SECTION ==================== -->
+            <div class="alumni-section">
+                <h3>Alumni</h3>
+                <div class="alumni-container">
+                    <div class="alumni-list">
+                        <div class="alumni-item">
+                            <span class="alumni-name">Dr. Thomas Wright</span>
+                            <span class="alumni-years">2018 - 2022</span>
+                        </div>
+                        <div class="alumni-item">
+                            <span class="alumni-name">Dr. Emily Zhang</span>
+                            <span class="alumni-years">2019 - 2023</span>
+                        </div>
+                        <div class="alumni-item">
+                            <span class="alumni-name">James Peterson</span>
+                            <span class="alumni-years">2020 - 2022</span>
+                        </div>
+                        <div class="alumni-item">
+                            <span class="alumni-name">Dr. Maria Garcia</span>
+                            <span class="alumni-years">2018 - 2021</span>
+                        </div>
+                        <div class="alumni-item">
+                            <span class="alumni-name">Christopher Park</span>
+                            <span class="alumni-years">2021 - 2023</span>
+                        </div>
+                        <div class="alumni-item">
+                            <span class="alumni-name">Dr. Lisa Anderson</span>
+                            <span class="alumni-years">2019 - 2022</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
