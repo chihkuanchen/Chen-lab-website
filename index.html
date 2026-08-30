@@ -429,45 +429,50 @@
             color: var(--secondary);
         }
 
-        /* ==================== EQUIPMENT SECTION ==================== */
-        #equipment {
+        /* ==================== NEWS SECTION ==================== */
+        #news {
             background-color: var(--white);
         }
 
-        .equipment-grid {
+        .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
             margin-top: 2rem;
         }
 
-        .equipment-card {
+        .news-card {
             background: #f8f9fb;
             padding: 2rem;
             border-radius: 12px;
-            text-align: center;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
+            border-left: 4px solid var(--accent);
             opacity: 0;
             transform: translateY(20px);
         }
 
-        .equipment-card:hover {
-            transform: scale(1.05);
+        .news-card:hover {
+            transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
+            border-left-color: var(--secondary);
         }
 
-        .equipment-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .news-date {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
 
-        .equipment-card h3 {
+        .news-card h3 {
             margin-top: 0;
         }
 
-        .equipment-card p {
-            color: var(--gray);
+        .news-card p {
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 1rem;
         }
 
         /* ==================== CONTACT SECTION ==================== */
@@ -602,7 +607,7 @@
 
             .research-grid,
             .team-grid,
-            .equipment-grid {
+            .news-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -659,7 +664,7 @@
                 <li><a href="#research">Research</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="#publications">Publications</a></li>
-                <li><a href="#equipment">Equipment</a></li>
+                <li><a href="#news">News</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="hamburger">
@@ -677,7 +682,7 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                    Using birds as a major model, we ask how cell types and gene regulatory networks evolve to generate tissue diversity. Combining single cell transcriptomics along with epigenomics, we study the gene regulatory elements and networks that drive cell type identity and tissue-specific developmental programs.
+                    Using birds as a major model, we ask how cell types and gene regulatory networks evolve to generate tissue diversity. Combining single cell transcriptomics along with epigenomic approaches, we aim to understand the molecular basis of phenotypic diversity at the cellular and tissue levels.
                     </p>
                 </div>
                 <div class="about-image">
@@ -695,19 +700,19 @@
                 <div class="research-card">
                     <h3>Tissue Homology</h3>
                     <p>
-                        Investigating fundamental molecular processes including DNA replication, transcription, and protein synthesis. Our work contributes to understanding how genes are regulated during development and how cell types are conserved across species.
+                        Investigating fundamental molecular processes including DNA replication, transcription, and protein synthesis. Our work contributes to understanding how genes are regulated across different cell types and developmental stages.
                     </p>
                 </div>
                 <div class="research-card">
                     <h3>Regulatory Innovation</h3>
                     <p>
-                        Developing advanced genetic tools and techniques for precise DNA manipulation. We explore applications in agriculture, medicine, and biotechnology with a focus on understanding evolutionary innovation in gene regulation.
+                        Developing advanced genetic tools and techniques for precise DNA manipulation. We explore applications in agriculture, medicine, and biotechnology with a focus on understanding how regulatory networks evolve.
                     </p>
                 </div>
                 <div class="research-card">
                     <h3>Cellular senescence</h3>
                     <p>
-                        Studying cellular structures, functions, and interactions. Our research examines cellular signaling, metabolism, and disease mechanisms at the molecular level, with emphasis on how regulatory networks evolve.
+                        Studying cellular structures, functions, and interactions. Our research examines cellular signaling, metabolism, and disease mechanisms at the molecular level, with emphasis on regulatory control.
                     </p>
                 </div>
             </div>
@@ -732,7 +737,7 @@
                     <h3>Dr. Jennifer Lee</h3>
                     <div class="member-role">Senior Postdoctoral Fellow</div>
                     <p class="member-bio">
-                        Ph.D. in Molecular Biology with expertise in transcriptomic analysis and computational genomics. Published 15+ peer-reviewed articles on gene regulatory networks. Specializes in single-cell RNA-seq.
+                        Ph.D. in Molecular Biology with expertise in transcriptomic analysis and computational genomics. Published 15+ peer-reviewed articles on gene regulatory networks. Specialist in single-cell genomics.
                     </p>
                 </div>
                 <div class="team-card">
@@ -740,7 +745,7 @@
                     <h3>Marcus Chen</h3>
                     <div class="member-role">Graduate Research Assistant</div>
                     <p class="member-bio">
-                        M.S. candidate in Bioinformatics. Developing bioinformatic pipelines for RNA-seq and ChIP-seq analysis. Experienced in Python, R, and high-performance computing. Research focus on regulatory element annotation.
+                        M.S. candidate in Bioinformatics. Developing bioinformatic pipelines for RNA-seq and ChIP-seq analysis. Experienced in Python, R, and high-performance computing. Research focus on regulatory evolution.
                     </p>
                 </div>
                 <div class="team-card">
@@ -748,7 +753,7 @@
                     <h3>Dr. Sarah Rodriguez</h3>
                     <div class="member-role">Research Scientist</div>
                     <p class="member-bio">
-                        Ph.D. in Genetics with 8+ years of research experience in population genomics. Expertise in statistical genetics and phylogenetic analysis. Co-authored 20+ publications in evolutionary genomics.
+                        Ph.D. in Genetics with 8+ years of research experience in population genomics. Expertise in statistical genetics and phylogenetic analysis. Co-authored 20+ publications in peer-reviewed journals.
                     </p>
                 </div>
                 <div class="team-card">
@@ -764,7 +769,7 @@
                     <h3>Alex Chen</h3>
                     <div class="member-role">Lab Technician</div>
                     <p class="member-bio">
-                        B.S. in Biology with expertise in laboratory operations and molecular techniques. Proficient in PCR, cloning, sequencing, and cell culture. Ensures smooth lab operations and sample management.
+                        B.S. in Biology with expertise in laboratory operations and molecular techniques. Proficient in PCR, cloning, sequencing, and cell culture. Ensures smooth lab operations and maintains equipment.
                     </p>
                 </div>
             </div>
@@ -861,40 +866,40 @@
         </div>
     </section>
 
-    <!-- ==================== EQUIPMENT SECTION ==================== -->
-    <section id="equipment">
+    <!-- ==================== NEWS SECTION ==================== -->
+    <section id="news">
         <div class="container">
-            <h2>Laboratory Equipment</h2>
-            <div class="equipment-grid">
-                <div class="equipment-card">
-                    <div class="equipment-icon">🔬</div>
-                    <h3>Confocal Microscope</h3>
-                    <p>High-resolution imaging system for cellular and tissue analysis with fluorescence detection capabilities and 3D reconstruction.</p>
+            <h2>Laboratory News</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-date">August 2024</div>
+                    <h3>New Grant Award</h3>
+                    <p>Dr. Chen's lab has been awarded a 3-year research grant from the National Science Council to investigate gene regulatory evolution in avian species. This funding will support expansion of our genomics infrastructure.</p>
                 </div>
-                <div class="equipment-card">
-                    <div class="equipment-icon">🧬</div>
-                    <h3>DNA Sequencer</h3>
-                    <p>Next-generation sequencing platform for whole genome, targeted sequencing, and RNA-seq applications.</p>
+                <div class="news-card">
+                    <div class="news-date">July 2024</div>
+                    <h3>Publication Success</h3>
+                    <p>Our latest research on tissue-specific regulatory elements has been published in Nature Genetics. This work represents a major breakthrough in understanding how gene regulation evolves across different tissues.</p>
                 </div>
-                <div class="equipment-card">
-                    <div class="equipment-icon">⚗️</div>
-                    <h3>Mass Spectrometer</h3>
-                    <p>Advanced analytical instrument for protein identification, structural analysis, and quantitative proteomics.</p>
+                <div class="news-card">
+                    <div class="news-date">June 2024</div>
+                    <h3>Welcome New Team Members</h3>
+                    <p>The lab welcomes two new graduate students and one postdoctoral fellow. They will be joining our ongoing projects on regulatory innovation and cellular differentiation in developmental systems.</p>
                 </div>
-                <div class="equipment-card">
-                    <div class="equipment-icon">🧫</div>
-                    <h3>Bioreactor System</h3>
-                    <p>Controlled environment for cell culture and tissue engineering experiments with real-time monitoring capabilities.</p>
+                <div class="news-card">
+                    <div class="news-date">May 2024</div>
+                    <h3>Conference Presentations</h3>
+                    <p>Lab members presented their research at the International Society of Evolutionary Biology conference. Three oral presentations and two poster presentations showcased our latest findings on gene regulatory networks.</p>
                 </div>
-                <div class="equipment-card">
-                    <div class="equipment-icon">🖥️</div>
-                    <h3>High-Performance Computing</h3>
-                    <p>Advanced computational resources for genomic analysis, bioinformatics pipelines, and data processing.</p>
+                <div class="news-card">
+                    <div class="news-date">April 2024</div>
+                    <h3>Collaborative Research Initiative</h3>
+                    <p>We have initiated a new collaborative project with researchers at Academia Sinica on understanding enhancer evolution. This interdisciplinary effort combines computational and experimental approaches.</p>
                 </div>
-                <div class="equipment-card">
-                    <div class="equipment-icon">⚙️</div>
-                    <h3>Electron Microscope</h3>
-                    <p>Ultra-high resolution imaging for ultrastructural analysis of cells and tissues at the molecular level.</p>
+                <div class="news-card">
+                    <div class="news-date">March 2024</div>
+                    <h3>Lab Workshop Series</h3>
+                    <p>Launched a new monthly workshop series on bioinformatics and genomic analysis. Workshops cover topics including RNA-seq analysis, ATAC-seq processing, and single-cell transcriptomics methods.</p>
                 </div>
             </div>
         </div>
@@ -978,7 +983,7 @@
         }, observerOptions);
 
         // Observe all cards for animation
-        document.querySelectorAll('.research-card, .team-card, .equipment-card').forEach(card => {
+        document.querySelectorAll('.research-card, .team-card, .news-card').forEach(card => {
             observer.observe(card);
         });
     </script>
