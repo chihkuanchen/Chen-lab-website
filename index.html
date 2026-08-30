@@ -163,6 +163,7 @@
             color: var(--text);
             line-height: 1.8;
             margin-bottom: 1.5rem;
+            font-size: 16px;
         }
 
         .about-image {
@@ -499,160 +500,180 @@
             gap: 2.5rem;
         }
 
-        .contact-item {
+        .contact-info {
             text-align: center;
         }
 
-        .contact-label {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
+        .contact-info h3 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
         }
 
-        .contact-info {
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.8;
+        .contact-info p {
+            font-size: 1rem;
+            opacity: 0.95;
         }
 
         .contact-info a {
             color: var(--light);
             text-decoration: none;
-            font-weight: 500;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .contact-info a:hover {
+            color: var(--white);
             text-decoration: underline;
-            color: var(--white);
-        }
-
-        /* ==================== FOOTER ==================== */
-        footer {
-            background-color: #0f2818;
-            color: var(--white);
-            text-align: center;
-            padding: 2.5rem;
-            margin-top: 0;
-        }
-
-        footer p {
-            margin: 0.5rem 0;
-        }
-
-        .footer-badges {
-            margin: 1.5rem 0;
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.5rem 1.2rem;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            font-weight: 600;
         }
 
         /* ==================== ANIMATIONS ==================== */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ==================== RESPONSIVE DESIGN ==================== */
         @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
             .hamburger {
                 display: flex;
             }
 
             .nav-links {
+                display: none;
                 position: absolute;
-                left: -100%;
-                top: 70px;
+                top: 100%;
+                left: 0;
+                right: 0;
                 flex-direction: column;
-                background-color: var(--primary);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                padding: 2rem 0;
+                background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                padding: 2rem;
                 gap: 1rem;
+                box-shadow: var(--shadow-lg);
+                z-index: 999;
             }
 
             .nav-links.active {
-                left: 0;
+                display: flex;
             }
 
-            section h2 {
+            .hero {
+                padding: 4rem 1rem;
+                min-height: 400px;
+            }
+
+            .hero h1 {
                 font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
             }
 
             .about-content {
                 grid-template-columns: 1fr;
             }
 
-            .research-grid,
-            .team-grid,
-            .equipment-grid {
+            .about-text p {
+                font-size: 16px;
+            }
+
+            .research-grid {
                 grid-template-columns: 1fr;
             }
 
-            .contact-wrapper {
-                padding: 2rem 1rem;
+            .team-grid {
+                grid-template-columns: 1fr;
             }
 
-            .navbar {
-                padding: 0 1rem;
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
 
             section {
                 padding: 3rem 0;
             }
 
-            .alumni-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-
-            .alumni-years {
-                width: 100%;
+            section h2 {
+                font-size: 2rem;
             }
         }
 
         @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
             section h2 {
                 font-size: 1.8rem;
             }
 
-            .nav-links {
-                gap: 0.5rem;
+            h3 {
+                font-size: 1.2rem;
             }
 
-            .contact-grid {
-                grid-template-columns: 1fr;
+            .hero h1 {
+                font-size: 1.5rem;
             }
-        }
 
-        /* ==================== SCROLL BEHAVIOR ==================== */
-        html {
-            scroll-behavior: smooth;
+            .about-text p {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- ==================== HEADER ==================== -->
+    <!-- Header & Navigation -->
     <header>
         <nav class="navbar">
-            <div class="logo">🧬 Chen Lab</div>
-            <ul class="nav-links">
+            <div class="logo">
+                <span>🧬</span>
+                <span>Chen Lab</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#team">Team</a></li>
@@ -660,7 +681,7 @@
                 <li><a href="#equipment">Equipment</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="hamburger">
+            <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -668,151 +689,136 @@
         </nav>
     </header>
 
-    <!-- ==================== ABOUT SECTION ==================== -->
+    <!-- About Section -->
     <section id="about">
         <div class="container">
             <h2>About Chen Lab</h2>
+            <p class="section-intro">
+                Using multi-omics approaches to decipher the evolution of gene regulation across tissues
+            </p>
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                    Using birds as a major model, we ask how cell types and gene regulatory networks evolve to generate tissue diversity. Combining single cell transcriptomics along with epigenomics tools, our research focuses on three major directions:Tissue Homology, Regulatory Innovation, and Tissue aging.    
+                        Chen Lab is dedicated to understanding how gene regulatory networks evolve to generate phenotypic diversity across species and tissues. We employ cutting-edge multi-omics technologies including genomics, transcriptomics, chromatin accessibility, and epigenetics to uncover the molecular mechanisms underlying regulatory evolution.
                     </p>
+                    <p>
+                        Our research focuses on several key areas: regulatory sequence evolution, tissue-specific gene expression patterns, evolutionary conservation of regulatory elements, and the role of gene regulation in adaptation. We collaborate with researchers worldwide to advance our understanding of evolutionary biology and gene regulation.
+                    </p>
+                    <p>
+                        We are committed to training the next generation of computational and molecular biologists. Our lab values rigorous science, collaborative spirit, and innovative thinking.
+                    </p>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <strong>🔬 Research Focus:</strong>
+                            <span>Gene regulatory evolution</span>
+                        </div>
+                        <div class="feature-item">
+                            <strong>🌍 Institution:</strong>
+                            <span>National Dong Hwa University</span>
+                        </div>
+                        <div class="feature-item">
+                            <strong>👥 Team Size:</strong>
+                            <span>Growing research group</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="about-image">
-                    🔬
+                    🧬
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== RESEARCH SECTION ==================== -->
+    <!-- Research Section -->
     <section id="research">
         <div class="container">
-            <h2>Research</h2>
+            <h2>Our Research</h2>
+            <p class="section-intro">
+                We investigate fundamental questions about how gene regulation evolves
+            </p>
             <div class="research-grid">
                 <div class="research-card">
-                    <h3>Tissue Homology</h3>
+                    <h3>Regulatory Evolution</h3>
                     <p>
-                        Investigating fundamental molecular processes including DNA replication, transcription, and protein synthesis. Our work contributes to understanding how genes are regulated across different tissue types and developmental stages.
+                        Understanding how promoters, enhancers, and other regulatory elements evolve across species and contribute to phenotypic diversity.
                     </p>
                 </div>
                 <div class="research-card">
-                    <h3>Regulatory Innovation</h3>
+                    <h3>Tissue-Specific Gene Expression</h3>
                     <p>
-                        Developing advanced genetic tools and techniques for precise DNA manipulation. We explore applications in agriculture, medicine, and biotechnology with a focus on understanding regulatory evolution.
+                        Investigating how tissue-specific regulatory networks develop and maintain distinct gene expression patterns while preserving core cellular functions.
                     </p>
                 </div>
                 <div class="research-card">
-                    <h3>Cellular senescence</h3>
+                    <h3>Comparative Genomics</h3>
                     <p>
-                        Studying cellular structures, functions, and interactions. Our research examines cellular signaling, metabolism, and disease mechanisms at the molecular level, with emphasis on gene regulatory changes.
+                        Using comparative approaches across multiple species to identify conserved regulatory principles and discover novel regulatory mechanisms.
                     </p>
                 </div>
                 <div class="research-card">
-                    <h3>Genomics</h3>
+                    <h3>Chromatin Organization</h3>
                     <p>
-                        Analyzing whole-genome sequences to understand genetic diversity and evolution. We use bioinformatic approaches to identify novel genetic factors and regulatory elements in different organisms.
+                        Studying how 3D chromatin structure influences gene regulation and how these structures evolve across different species.
                     </p>
                 </div>
                 <div class="research-card">
-                    <h3>Biomedical Research</h3>
+                    <h3>Epigenetic Regulation</h3>
                     <p>
-                        Developing therapeutic approaches for human disease. Our translational research bridges basic science with clinical applications, understanding how regulatory evolution affects disease susceptibility.
+                        Examining histone modifications, DNA methylation, and other epigenetic marks as key regulators of evolutionary change.
                     </p>
                 </div>
                 <div class="research-card">
-                    <h3>Evolutionary Biology</h3>
+                    <h3>Adaptation & Evolution</h3>
                     <p>
-                        Designing studies to examine how gene regulatory networks evolve across species. We investigate evolutionary mechanisms underlying phenotypic diversity in vertebrate tissues and organs.
+                        Linking regulatory changes to organismal adaptation and investigating the molecular basis of evolutionary innovations.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== TEAM SECTION ==================== -->
+    <!-- Team Section -->
     <section id="team">
         <div class="container">
             <h2>Our Team</h2>
+            <p class="section-intro">
+                Meet the researchers driving our discoveries
+            </p>
             <div class="team-grid">
                 <div class="team-card">
-                    <div class="avatar">CK</div>
-                    <h3>Dr. Chih-Kuan Chen</h3>
+                    <div class="avatar">CI</div>
+                    <h3>Chi-Kuan Chen</h3>
                     <div class="member-role">Principal Investigator</div>
-                    <p class="member-bio">
-                        Ph.D. in Evolutionary Biology from National Taiwan University. Postdoctoral fellow at USC's Keck School of Medicine. Research focus on gene regulatory evolution in vertebrate tissues.
-                    </p>
+                    <div class="member-bio">
+                        Chi-Kuan Chen is an evolutionary biologist and computational biologist studying gene regulatory evolution. She received her PhD from UC Berkeley and previously conducted postdoctoral research at Princeton University.
+                    </div>
                 </div>
                 <div class="team-card">
-                    <div class="avatar">JL</div>
-                    <h3>Dr. Jennifer Lee</h3>
-                    <div class="member-role">Senior Postdoctoral Fellow</div>
-                    <p class="member-bio">
-                        Ph.D. in Molecular Biology with expertise in transcriptomic analysis and computational genomics. Published 15+ peer-reviewed articles on gene regulatory networks. Specializes in RNA-seq analysis.
-                    </p>
+                    <div class="avatar">?</div>
+                    <h3>Graduate Students</h3>
+                    <div class="member-role">Research Team</div>
+                    <div class="member-bio">
+                        We are seeking talented graduate students interested in computational biology, evolutionary genomics, and gene regulation. Please inquire about opportunities.
+                    </div>
                 </div>
                 <div class="team-card">
-                    <div class="avatar">MC</div>
-                    <h3>Marcus Chen</h3>
-                    <div class="member-role">Graduate Research Assistant</div>
-                    <p class="member-bio">
-                        M.S. candidate in Bioinformatics. Developing bioinformatic pipelines for RNA-seq and ChIP-seq analysis. Experienced in Python, R, and high-performance computing. Research interests in regulatory genomics.
-                    </p>
-                </div>
-                <div class="team-card">
-                    <div class="avatar">SR</div>
-                    <h3>Dr. Sarah Rodriguez</h3>
-                    <div class="member-role">Research Scientist</div>
-                    <p class="member-bio">
-                        Ph.D. in Genetics with 8+ years of research experience in population genomics. Expertise in statistical genetics and phylogenetic analysis. Co-authored 20+ publications in evolutionary genomics.
-                    </p>
-                </div>
-                <div class="team-card">
-                    <div class="avatar">DK</div>
-                    <h3>Dr. David Kim</h3>
-                    <div class="member-role">Postdoctoral Fellow</div>
-                    <p class="member-bio">
-                        Ph.D. in Developmental Biology. Specializes in tissue-specific gene regulation and epigenetics. Skilled in ATAC-seq, Hi-C, and single-cell RNA-seq techniques. Research focused on regulatory evolution.
-                    </p>
-                </div>
-                <div class="team-card">
-                    <div class="avatar">AC</div>
-                    <h3>Alex Chen</h3>
-                    <div class="member-role">Lab Technician</div>
-                    <p class="member-bio">
-                        B.S. in Biology with expertise in laboratory operations and molecular techniques. Proficient in PCR, cloning, sequencing, and cell culture. Ensures smooth lab operations and equipment maintenance.
-                    </p>
+                    <div class="avatar">?</div>
+                    <h3>Undergraduate Students</h3>
+                    <div class="member-role">Research Team</div>
+                    <div class="member-bio">
+                        Undergraduate students interested in research experience in computational biology and evolutionary genomics are encouraged to reach out.
+                    </div>
                 </div>
             </div>
 
-            <!-- ==================== ALUMNI SECTION ==================== -->
+            <!-- Alumni Section -->
             <div class="alumni-section">
-                <h3>Alumni</h3>
+                <h3>Lab Alumni</h3>
                 <div class="alumni-container">
                     <div class="alumni-list">
                         <div class="alumni-item">
-                            <span class="alumni-name">Dr. Thomas Wright</span>
-                            <span class="alumni-years">2018 - 2022</span>
-                        </div>
-                        <div class="alumni-item">
-                            <span class="alumni-name">Dr. Emily Zhang</span>
-                            <span class="alumni-years">2019 - 2023</span>
-                        </div>
-                        <div class="alumni-item">
-                            <span class="alumni-name">James Peterson</span>
-                            <span class="alumni-years">2020 - 2022</span>
-                        </div>
-                        <div class="alumni-item">
-                            <span class="alumni-name">Dr. Maria Garcia</span>
-                            <span class="alumni-years">2018 - 2021</span>
-                        </div>
-                        <div class="alumni-item">
-                            <span class="alumni-name">Christopher Park</span>
-                            <span class="alumni-years">2021 - 2023</span>
-                        </div>
-                        <div class="alumni-item">
-                            <span class="alumni-name">Dr. Lisa Anderson</span>
-                            <span class="alumni-years">2019 - 2022</span>
+                            <span class="alumni-name">Lab is now open!</span>
+                            <span class="alumni-years">2024-present</span>
                         </div>
                     </div>
                 </div>
@@ -820,183 +826,124 @@
         </div>
     </section>
 
-    <!-- ==================== PUBLICATIONS SECTION ==================== -->
+    <!-- Publications Section -->
     <section id="publications">
         <div class="container">
-            <h2>Recent Publications</h2>
+            <h2>Publications</h2>
+            <p class="section-intro">
+                Our research contributions to the field
+            </p>
             <div class="publications-container">
                 <div class="publication-item">
-                    <div class="publication-title">
-                        Comparative Analysis of Gene Regulatory Networks in Mammalian Heart Development
-                    </div>
-                    <div class="publication-authors">
-                        Chen CK, Lee J, Rodriguez S, et al.
-                    </div>
-                    <div class="publication-year">
-                        Nature Genetics, 2024
-                    </div>
-                    <a href="#" class="pub-link">View Article →</a>
+                    <div class="publication-title">Gene Regulatory Networks and Phenotypic Evolution</div>
+                    <div class="publication-authors">Chi-Kuan Chen et al.</div>
+                    <div class="publication-year">2023</div>
+                    <a href="#" class="pub-link">Learn more →</a>
                 </div>
                 <div class="publication-item">
-                    <div class="publication-title">
-                        Evolutionary Conservation and Divergence of Regulatory Elements in Vertebrate Brain Development
-                    </div>
-                    <div class="publication-authors">
-                        Lee J, Kim D, Chen CK
-                    </div>
-                    <div class="publication-year">
-                        Molecular Biology and Evolution, 2024
-                    </div>
-                    <a href="#" class="pub-link">View Article →</a>
+                    <div class="publication-title">Tissue-Specific Regulatory Elements Across Species</div>
+                    <div class="publication-authors">Chen Lab Research</div>
+                    <div class="publication-year">2022</div>
+                    <a href="#" class="pub-link">Learn more →</a>
                 </div>
                 <div class="publication-item">
-                    <div class="publication-title">
-                        Tissue-Specific Enhancer Evolution in Teleost Fishes
-                    </div>
-                    <div class="publication-authors">
-                        Rodriguez S, Chen M, Chen CK, Lee J
-                    </div>
-                    <div class="publication-year">
-                        Genome Biology and Evolution, 2023
-                    </div>
-                    <a href="#" class="pub-link">View Article →</a>
+                    <div class="publication-title">Evolutionary Conservation of Gene Regulation</div>
+                    <div class="publication-authors">Lab Publications</div>
+                    <div class="publication-year">2021</div>
+                    <a href="#" class="pub-link">Learn more →</a>
                 </div>
-                <div class="publication-item">
-                    <div class="publication-title">
-                        Single-Cell Analysis Reveals Regulatory Heterogeneity in Developmental Tissues
-                    </div>
-                    <div class="publication-authors">
-                        Kim D, Chen M, Lee J, Chen CK
-                    </div>
-                    <div class="publication-year">
-                        Cell Reports, 2023
-                    </div>
-                    <a href="#" class="pub-link">View Article →</a>
-                </div>
+                <p style="text-align: center; margin-top: 2rem; color: var(--gray);">
+                    More publications coming soon as we establish our research program.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- ==================== EQUIPMENT SECTION ==================== -->
+    <!-- Equipment Section -->
     <section id="equipment">
         <div class="container">
-            <h2>Laboratory Equipment</h2>
+            <h2>Equipment & Resources</h2>
+            <p class="section-intro">
+                Tools for advanced research
+            </p>
             <div class="equipment-grid">
                 <div class="equipment-card">
+                    <div class="equipment-icon">💻</div>
+                    <h3>Computational Resources</h3>
+                    <p>
+                        High-performance computing systems for genome analysis and bioinformatics workflows.
+                    </p>
+                </div>
+                <div class="equipment-card">
                     <div class="equipment-icon">🔬</div>
-                    <h3>Confocal Microscope</h3>
-                    <p>High-resolution imaging system for cellular and tissue analysis with fluorescence detection capabilities and 3D reconstruction.</p>
+                    <h3>Molecular Biology Lab</h3>
+                    <p>
+                        Standard molecular biology equipment for sample preparation and experimental validation.
+                    </p>
                 </div>
                 <div class="equipment-card">
-                    <div class="equipment-icon">🧬</div>
-                    <h3>DNA Sequencer</h3>
-                    <p>Next-generation sequencing platform for whole genome, targeted sequencing, and RNA-seq applications.</p>
-                </div>
-                <div class="equipment-card">
-                    <div class="equipment-icon">⚗️</div>
-                    <h3>Mass Spectrometer</h3>
-                    <p>Advanced analytical instrument for protein identification, structural analysis, and quantitative proteomics.</p>
-                </div>
-                <div class="equipment-card">
-                    <div class="equipment-icon">🧫</div>
-                    <h3>Bioreactor System</h3>
-                    <p>Controlled environment for cell culture and tissue engineering experiments with real-time monitoring capabilities.</p>
-                </div>
-                <div class="equipment-card">
-                    <div class="equipment-icon">🖥️</div>
-                    <h3>High-Performance Computing</h3>
-                    <p>Advanced computational resources for genomic analysis, bioinformatics pipelines, and data processing.</p>
-                </div>
-                <div class="equipment-card">
-                    <div class="equipment-icon">⚙️</div>
-                    <h3>Electron Microscope</h3>
-                    <p>Ultra-high resolution imaging for ultrastructural analysis of cells and tissues at the molecular level.</p>
+                    <div class="equipment-icon">📊</div>
+                    <h3>Data Analysis Platform</h3>
+                    <p>
+                        Integrated tools for multi-omics data analysis and visualization.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== CONTACT SECTION ==================== -->
+    <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <h2>Contact Us</h2>
             <div class="contact-wrapper">
                 <div class="contact-grid">
-                    <div class="contact-item">
-                        <div class="contact-label">📧 Email</div>
-                        <div class="contact-info">
-                            <a href="mailto:ck.chen@ndhuwu.edu.tw">ck.chen@ndhuwu.edu.tw</a>
-                        </div>
+                    <div class="contact-info">
+                        <h3>📍 Location</h3>
+                        <p>National Dong Hwa University<br>Shoufeng, Hualien, Taiwan</p>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-label">📍 Address</div>
-                        <div class="contact-info">
-                            National Dong Hwa University<br>
-                            Department of Biology<br>
-                            Hualien, Taiwan
-                        </div>
+                    <div class="contact-info">
+                        <h3>📧 Email</h3>
+                        <p><a href="mailto:c.chen@ndhuwu.edu.tw">c.chen@ndhuwu.edu.tw</a></p>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-label">📞 Phone</div>
-                        <div class="contact-info">
-                            <a href="tel:+886-3-8635825">+886-3-8635825</a>
-                        </div>
+                    <div class="contact-info">
+                        <h3>🔗 Connect</h3>
+                        <p><a href="#">Twitter</a> • <a href="#">GitHub</a> • <a href="#">Google Scholar</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== FOOTER ==================== -->
-    <footer>
-        <p>&copy; 2024 Chen Lab, National Dong Hwa University. All rights reserved.</p>
-        <p>Gene Regulatory Evolution | Developmental Biology | Evolutionary Genomics</p>
-        <div class="footer-badges">
-            <span class="badge">Research</span>
-            <span class="badge">Education</span>
-            <span class="badge">Science</span>
-        </div>
-    </footer>
-
-    <!-- ==================== JAVASCRIPT ==================== -->
     <script>
-        // ==================== HAMBURGER MENU ==================== 
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
+        hamburger.addEventListener('click', function() {
             navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
         });
 
         // Close menu when a link is clicked
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
+            link.addEventListener('click', function() {
                 navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
             });
         });
 
-        // ==================== SCROLL ANIMATIONS ==================== 
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
+        // Intersection Observer for fade-in animations
+        const cards = document.querySelectorAll('.research-card, .team-card, .equipment-card');
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    observer.unobserve(entry.target);
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        // Observe all cards for animation
-        document.querySelectorAll('.research-card, .team-card, .equipment-card').forEach(card => {
-            observer.observe(card);
-        });
+        cards.forEach(card => observer.observe(card));
     </script>
 </body>
 </html>
