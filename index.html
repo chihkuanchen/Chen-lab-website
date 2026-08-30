@@ -430,44 +430,58 @@
         }
 
         /* ==================== EQUIPMENT SECTION ==================== */
-        #equipment {
+        #news {
             background-color: var(--white);
         }
 
-        .equipment-grid {
+        .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .equipment-card {
+        .news-card {
             background: #f8f9fb;
             padding: 2rem;
             border-radius: 12px;
-            text-align: center;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(20px);
         }
 
-        .equipment-card:hover {
+        .news-card:hover {
             transform: scale(1.05);
             box-shadow: var(--shadow-lg);
         }
 
-        .equipment-icon {
-            font-size: 3rem;
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+
+        .news-card p {
+            color: var(--gray);
+            line-height: 1.7;
             margin-bottom: 1rem;
         }
 
-        .equipment-card h3 {
-            margin-top: 0;
+        .news-card a.read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
         }
 
-        .equipment-card p {
-            color: var(--gray);
+        .news-card a.read-more:hover {
+            text-decoration: underline;
         }
 
         /* ==================== CONTACT SECTION ==================== */
@@ -602,7 +616,7 @@
 
             .research-grid,
             .team-grid,
-            .equipment-grid {
+            .news-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -659,7 +673,7 @@
                 <li><a href="#research">Research</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="#publications">Publications</a></li>
-                <li><a href="#equipment">Equipment</a></li>
+                <li><a href="#news">News</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="hamburger">
@@ -861,40 +875,46 @@
         </div>
     </section>
 
-    <!-- ==================== EQUIPMENT SECTION ==================== -->
-    <section id="equipment">
+    <!-- ==================== NEWS SECTION ==================== -->
+    <section id="news">
         <div class="container">
-            <h2>Laboratory Equipment</h2>
-            <div class="equipment-grid">
-                <div class="equipment-card">
-                    <div class="equipment-icon">🔬</div>
-                    <h3>Confocal Microscope</h3>
-                    <p>High-resolution imaging system for cellular and tissue analysis with fluorescence detection capabilities and 3D reconstruction.</p>
+            <h2>Lab News</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-date">August 2026</div>
+                    <h3>New Grant Awarded</h3>
+                    <p>The lab has received a major NIH grant to study regulatory mechanisms in tissue homology across species.</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
-                <div class="equipment-card">
-                    <div class="equipment-icon">🧬</div>
-                    <h3>DNA Sequencer</h3>
-                    <p>Next-generation sequencing platform for whole genome, targeted sequencing, and RNA-seq applications.</p>
+                <div class="news-card">
+                    <div class="news-date">July 2026</div>
+                    <h3>Paper Published in Nature Cell Biology</h3>
+                    <p>Our latest findings on cellular senescence and its role in tissue aging have been published in Nature Cell Biology.</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
-                <div class="equipment-card">
-                    <div class="equipment-icon">⚗️</div>
-                    <h3>Mass Spectrometer</h3>
-                    <p>Advanced analytical instrument for protein identification, structural analysis, and quantitative proteomics.</p>
+                <div class="news-card">
+                    <div class="news-date">June 2026</div>
+                    <h3>Lab Members Present at International Conference</h3>
+                    <p>Several lab members presented their research on regulatory innovation at the annual International Evolutionary Biology symposium.</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
-                <div class="equipment-card">
-                    <div class="equipment-icon">🧫</div>
-                    <h3>Bioreactor System</h3>
-                    <p>Controlled environment for cell culture and tissue engineering experiments with real-time monitoring capabilities.</p>
+                <div class="news-card">
+                    <div class="news-date">May 2026</div>
+                    <h3>Welcome New Graduate Students</h3>
+                    <p>We are excited to welcome three new PhD students who will be joining the lab this summer to work on cutting-edge projects.</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
-                <div class="equipment-card">
-                    <div class="equipment-icon">🖥️</div>
-                    <h3>High-Performance Computing</h3>
-                    <p>Advanced computational resources for genomic analysis, bioinformatics pipelines, and data processing.</p>
+                <div class="news-card">
+                    <div class="news-date">April 2026</div>
+                    <h3>Collaboration with International Partners</h3>
+                    <p>The Chen Lab has established a new collaborative research program with leading institutions in Europe and Asia.</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
-                <div class="equipment-card">
-                    <div class="equipment-icon">⚙️</div>
-                    <h3>Electron Microscope</h3>
-                    <p>Ultra-high resolution imaging for ultrastructural analysis of cells and tissues at the molecular level.</p>
+                <div class="news-card">
+                    <div class="news-date">March 2026</div>
+                    <h3>Lab Equipment Upgrade</h3>
+                    <p>We have upgraded our imaging facilities with a state-of-the-art confocal microscope, enhancing our research capabilities.</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
         </div>
@@ -978,7 +998,7 @@
         }, observerOptions);
 
         // Observe all cards for animation
-        document.querySelectorAll('.research-card, .team-card, .equipment-card').forEach(card => {
+        document.querySelectorAll('.research-card, .team-card, .news-card').forEach(card => {
             observer.observe(card);
         });
     </script>
