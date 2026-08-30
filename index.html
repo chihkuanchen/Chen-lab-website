@@ -108,95 +108,6 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
-        /* ==================== HERO SECTION ==================== */
-        .hero {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
-            color: var(--white);
-            padding: 8rem 2rem;
-            text-align: center;
-            min-height: 600px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
-            opacity: 0.5;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-            animation: slideDown 0.8s ease;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            opacity: 0.95;
-            animation: slideUp 0.8s ease 0.2s both;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: slideUp 0.8s ease 0.4s both;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.9rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 2px solid transparent;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background-color: var(--white);
-            color: var(--secondary);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--white);
-            color: var(--secondary);
-            transform: translateY(-3px);
-        }
-
         /* ==================== GENERAL SECTIONS ==================== */
         .container {
             max-width: 1200px;
@@ -227,16 +138,6 @@
             height: 4px;
             background: linear-gradient(90deg, var(--accent), var(--secondary));
             border-radius: 2px;
-        }
-
-        .section-intro {
-            text-align: center;
-            color: var(--gray);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         h3 {
@@ -661,28 +562,6 @@
         }
 
         /* ==================== ANIMATIONS ==================== */
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
@@ -711,19 +590,6 @@
                 left: 0;
             }
 
-            .hero {
-                padding: 4rem 1rem;
-                min-height: 400px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
             section h2 {
                 font-size: 2rem;
             }
@@ -736,14 +602,6 @@
             .team-grid,
             .equipment-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
             }
 
             .contact-wrapper {
@@ -770,14 +628,6 @@
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
             section h2 {
                 font-size: 1.8rem;
             }
@@ -803,7 +653,6 @@
         <nav class="navbar">
             <div class="logo">🧬 Chen Lab</div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#team">Team</a></li>
@@ -819,29 +668,17 @@
         </nav>
     </header>
 
-    <!-- ==================== HERO SECTION ==================== -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Welcome to Chen Lab</h1>
-            <p>Gene Regulatory Evolution in Vertebrate Tissues</p>
-            <div class="cta-buttons">
-                <a href="#research" class="btn btn-primary">Explore Research</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-            </div>
-        </div>
-    </section>
-
     <!-- ==================== ABOUT SECTION ==================== -->
     <section id="about">
         <div class="container">
             <h2>About Chen Lab</h2>
-            <p class="section-intro">
-                Using multi-omics approaches to decipher the evolution of gene regulation across tissues
-            </p>
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                        Using birds as a major model, we ask how cell types and gene regulatory networks evolve to generate tissue diversity. Combining single-cell transcriptomics with epigenomic tools, we focus on three major research directions: 1. Tissue Homology: Identifying conserved and divergent cell types across vertebrate skin appendages (e.g., feathers and hair); 2. Regulatory Innovation: Uncovering how novel regulatory elements, including alternative isoforms and transposon-derived sequences, contribute to the emergence of new cell states and morphologies. 3. Tissue Aging: Recognizing that mice have limitations as models for aging studies, we leverage biological diversity to develop new strategies for understanding and potentially mitigating human aging.
+                        Chen Lab is committed to conducting high-quality research that pushes the boundaries of biological science. With state-of-the-art equipment and a talented team of research scientists, we investigate fundamental questions about how gene regulatory networks evolve across tissues and species.
+                    </p>
+                    <p>
+                        We believe in the power of collaboration and open science. Our research findings are published in leading scientific journals and presented at international conferences, contributing to the global advancement of evolutionary and developmental biology.
                     </p>
                 </div>
                 <div class="about-image">
@@ -906,15 +743,15 @@
                     <h3>Dr. Chih-Kuan Chen</h3>
                     <div class="member-role">Principal Investigator</div>
                     <p class="member-bio">
-                        Miller Chen grew up in Taichung, Taiwan and received his PhD of Evolutionary biology from the National Taiwan University. He worked as postdoctoral fellow in the Keck Medical School at USC before coming to NDHU in 2026. Outside the lab, Miller loves ball games, reptiles, and weird plants.
+                        Ph.D. in Evolutionary Biology from National Taiwan University. Postdoctoral fellow at USC's Keck School of Medicine. Research focus on gene regulatory evolution in vertebrate tissues.
                     </p>
                 </div>
                 <div class="team-card">
                     <div class="avatar">JL</div>
-                    <h3>Mr/Miss Who</h3>
-                    <div class="member-role">XXXX</div>
+                    <h3>Dr. Jennifer Lee</h3>
+                    <div class="member-role">Senior Postdoctoral Fellow</div>
                     <p class="member-bio">
-                        XXXXXXXX.
+                        Ph.D. in Molecular Biology with expertise in transcriptomic analysis and computational genomics. Published 15+ peer-reviewed articles on gene regulatory networks. Specializes in RNA-seq analysis.
                     </p>
                 </div>
                 <div class="team-card">
@@ -990,9 +827,6 @@
     <section id="publications">
         <div class="container">
             <h2>Recent Publications</h2>
-            <p class="section-intro">
-                Our research findings published in leading scientific journals
-            </p>
             <div class="publications-container">
                 <div class="publication-item">
                     <div class="publication-title">
@@ -1050,9 +884,6 @@
     <section id="equipment">
         <div class="container">
             <h2>Laboratory Equipment</h2>
-            <p class="section-intro">
-                State-of-the-art facilities for advanced biological research
-            </p>
             <div class="equipment-grid">
                 <div class="equipment-card">
                     <div class="equipment-icon">🔬</div>
