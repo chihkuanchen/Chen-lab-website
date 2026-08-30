@@ -428,68 +428,45 @@
             color: var(--secondary);
         }
 
-        /* ==================== NEWS SECTION ==================== */
-        #news {
+        /* ==================== EQUIPMENT SECTION ==================== */
+        #equipment {
             background-color: var(--white);
         }
 
-        .news-grid {
+        .equipment-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
         }
 
-        .news-card {
+        .equipment-card {
             background: #f8f9fb;
             padding: 2rem;
             border-radius: 12px;
+            text-align: center;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
-            border-left: 4px solid var(--accent);
             opacity: 0;
             transform: translateY(20px);
         }
 
-        .news-card:hover {
-            transform: translateY(-8px);
+        .equipment-card:hover {
+            transform: scale(1.05);
             box-shadow: var(--shadow-lg);
-            border-left-color: var(--secondary);
         }
 
-        .news-date {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.8rem;
+        .equipment-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
-        .news-card h3 {
+        .equipment-card h3 {
             margin-top: 0;
-            margin-bottom: 1rem;
         }
 
-        .news-card p {
+        .equipment-card p {
             color: var(--gray);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .news-link {
-            display: inline-block;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-        }
-
-        .news-link:hover {
-            background-color: var(--light);
-            color: var(--secondary);
         }
 
         /* ==================== CONTACT SECTION ==================== */
@@ -624,7 +601,7 @@
 
             .research-grid,
             .team-grid,
-            .news-grid {
+            .equipment-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -681,7 +658,7 @@
                 <li><a href="#research">Research</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="#publications">Publications</a></li>
-                <li><a href="#news">News</a></li>
+                <li><a href="#equipment">Equipment</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="hamburger">
@@ -717,37 +694,19 @@
                 <div class="research-card">
                     <h3>Tissue Homology</h3>
                     <p>
-                        Identifying conserved and divergent cell types across vertebrate skin appendages (e.g., feathers and hair) using single-cell and spatial transcriptomics to reveal fundamental principles of stem cell regulation and adaptive patterning.
+                        Investigating fundamental molecular processes including DNA replication, transcription, and protein synthesis. Our work contributes to understanding how genes are regulated during development and how cell types are conserved across species.
                     </p>
                 </div>
                 <div class="research-card">
                     <h3>Regulatory Innovation</h3>
                     <p>
-                        Uncovering how novel regulatory elements, including alternative isoforms and transposon-derived sequences, contribute to the emergence of new cell states and morphologies through single-cell multi-omic approaches.
+                        Developing advanced genetic tools and techniques for precise DNA manipulation. We explore applications in agriculture, medicine, and biotechnology with a focus on understanding evolutionary innovation in gene regulation.
                     </p>
                 </div>
                 <div class="research-card">
                     <h3>Cellular senescence</h3>
                     <p>
-                        Recognizing that mice are often limited models for skin aging, I aim to leverage biological diversity to develop new strategies for understanding and potentially mitigating human skin aging.
-                    </p>
-                </div>
-                <div class="research-card">
-                    <h3>Genomics</h3>
-                    <p>
-                        Analyzing whole-genome sequences to understand genetic diversity and evolution. We use bioinformatic approaches to identify novel genetic factors and regulatory elements influencing phenotypic diversity.
-                    </p>
-                </div>
-                <div class="research-card">
-                    <h3>Biomedical Research</h3>
-                    <p>
-                        Developing therapeutic approaches for human disease. Our translational research bridges basic science with clinical applications, understanding how regulatory evolution affects disease susceptibility.
-                    </p>
-                </div>
-                <div class="research-card">
-                    <h3>Evolutionary Biology</h3>
-                    <p>
-                        Designing studies to examine how gene regulatory networks evolve across species. We investigate evolutionary mechanisms underlying phenotypic diversity in vertebrate tissues and organs.
+                        Studying cellular structures, functions, and interactions. Our research examines cellular signaling, metabolism, and disease mechanisms at the molecular level, with emphasis on how regulatory networks evolve.
                     </p>
                 </div>
             </div>
@@ -901,58 +860,40 @@
         </div>
     </section>
 
-    <!-- ==================== NEWS SECTION ==================== -->
-    <section id="news">
+    <!-- ==================== EQUIPMENT SECTION ==================== -->
+    <section id="equipment">
         <div class="container">
-            <h2>Lab News</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-date">August 2024</div>
-                    <h3>New Grant Awarded</h3>
-                    <p>
-                        We are excited to announce the award of a new NSF grant to investigate evolutionary mechanisms of gene regulatory networks in avian development. The 3-year project will provide support for 2 postdoctoral fellows and 3 graduate students.
-                    </p>
-                    <a href="#" class="news-link">Read More →</a>
+            <h2>Laboratory Equipment</h2>
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <div class="equipment-icon">🔬</div>
+                    <h3>Confocal Microscope</h3>
+                    <p>High-resolution imaging system for cellular and tissue analysis with fluorescence detection capabilities and 3D reconstruction.</p>
                 </div>
-                <div class="news-card">
-                    <div class="news-date">July 2024</div>
-                    <h3>Paper Published in Nature Genetics</h3>
-                    <p>
-                        Our latest work on comparative analysis of gene regulatory networks in mammalian heart development has been published in Nature Genetics. This study reveals conserved and divergent regulatory mechanisms across mammalian lineages.
-                    </p>
-                    <a href="#" class="news-link">Read More →</a>
+                <div class="equipment-card">
+                    <div class="equipment-icon">🧬</div>
+                    <h3>DNA Sequencer</h3>
+                    <p>Next-generation sequencing platform for whole genome, targeted sequencing, and RNA-seq applications.</p>
                 </div>
-                <div class="news-card">
-                    <div class="news-date">June 2024</div>
-                    <h3>Lab Seminar Series Launched</h3>
-                    <p>
-                        We have launched a weekly lab seminar series where current members and visiting scholars present their research findings. The seminars cover topics from single-cell genomics to evolutionary developmental biology.
-                    </p>
-                    <a href="#" class="news-link">Read More →</a>
+                <div class="equipment-card">
+                    <div class="equipment-icon">⚗️</div>
+                    <h3>Mass Spectrometer</h3>
+                    <p>Advanced analytical instrument for protein identification, structural analysis, and quantitative proteomics.</p>
                 </div>
-                <div class="news-card">
-                    <div class="news-date">May 2024</div>
-                    <h3>Dr. Jennifer Lee Receives Award</h3>
-                    <p>
-                        Dr. Jennifer Lee has been recognized with the Young Investigator Award from the Society for Molecular Biology and Evolution for her contributions to understanding regulatory evolution in vertebrates.
-                    </p>
-                    <a href="#" class="news-link">Read More →</a>
+                <div class="equipment-card">
+                    <div class="equipment-icon">🧫</div>
+                    <h3>Bioreactor System</h3>
+                    <p>Controlled environment for cell culture and tissue engineering experiments with real-time monitoring capabilities.</p>
                 </div>
-                <div class="news-card">
-                    <div class="news-date">April 2024</div>
-                    <h3>New Collaboration with International Team</h3>
-                    <p>
-                        We have established a new collaboration with researchers in Europe and Asia to study comparative genomics of regulatory elements across different vertebrate species and ecosystems.
-                    </p>
-                    <a href="#" class="news-link">Read More →</a>
+                <div class="equipment-card">
+                    <div class="equipment-icon">🖥️</div>
+                    <h3>High-Performance Computing</h3>
+                    <p>Advanced computational resources for genomic analysis, bioinformatics pipelines, and data processing.</p>
                 </div>
-                <div class="news-card">
-                    <div class="news-date">March 2024</div>
-                    <h3>Lab Website Launched</h3>
-                    <p>
-                        Welcome to the Chen Lab website! Here you will find information about our research, team members, publications, and latest news. We are committed to sharing our scientific discoveries with the broader research community.
-                    </p>
-                    <a href="#" class="news-link">Read More →</a>
+                <div class="equipment-card">
+                    <div class="equipment-icon">⚙️</div>
+                    <h3>Electron Microscope</h3>
+                    <p>Ultra-high resolution imaging for ultrastructural analysis of cells and tissues at the molecular level.</p>
                 </div>
             </div>
         </div>
@@ -1036,7 +977,7 @@
         }, observerOptions);
 
         // Observe all cards for animation
-        document.querySelectorAll('.research-card, .team-card, .news-card').forEach(card => {
+        document.querySelectorAll('.research-card, .team-card, .equipment-card').forEach(card => {
             observer.observe(card);
         });
     </script>
