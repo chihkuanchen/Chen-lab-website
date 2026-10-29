@@ -167,12 +167,11 @@
         }
 
         .about-image {
-            background: linear-gradient(135deg, var(--light) 0%, #e8f5e9 100%);
-            padding: 3rem;
+            display: block;
+            width: 100%;
+            height: auto;
             border-radius: 12px;
-            text-align: center;
-            font-size: 5rem;
-            animation: float 3s ease-in-out infinite;
+            box-shadow: var(--shadow-lg);
         }
 
         .features-list {
@@ -572,13 +571,6 @@
             font-size: 0.85rem;
             font-weight: 600;
         }
-
-        /* ==================== ANIMATIONS ==================== */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
         /* ==================== RESPONSIVE DESIGN ==================== */
         @media (max-width: 768px) {
             .hamburger {
@@ -708,9 +700,7 @@
                 <div class="about-text">
                     <p>Using birds as a major model, we ask how cell types and gene regulatory networks evolve to generate tissue diversity. Combining single cell transcriptomics along with epigenomics tools, our research focuses on three major directions: Evo-Devo of Skin Appendages, Regulatory Innovation, and Tissue Anti-aging.</p>
                 </div>
-                <div class="about-image">
-                    🔬
-                </div>
+                <img class="about-image" src="images/E10%20aSMA-488%20SMA-594_1X.png" alt="Microscopy image showing alpha-SMA staining in skin tissue">
             </div>
         </div>
     </section>
