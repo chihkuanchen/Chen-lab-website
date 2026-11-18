@@ -26,7 +26,8 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-size: 1.0625rem;
+            line-height: 1.7;
             color: var(--text);
             background-color: #f5f7fa;
         }
@@ -35,7 +36,7 @@
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: var(--white);
-            height: 100px;
+            min-height: 80px;
             padding: 0;
             position: sticky;
             top: 0;
@@ -49,11 +50,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            min-height: 80px;
+            padding: 0 clamp(1rem, 4vw, 2rem);
         }
 
         .logo {
-            font-size: 32px;
+            font-size: clamp(1.5rem, 2vw, 2rem);
             font-weight: 700;
             letter-spacing: 1px;
             display: flex;
@@ -62,7 +64,7 @@
         }
 
         .logo img {
-            width: 160px;
+            width: clamp(120px, 12vw, 160px);
             height: auto;
             object-fit: contain;
         }
@@ -70,14 +72,14 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: clamp(0.25rem, 1.2vw, 1.25rem);
         }
 
         .nav-links a {
             color: var(--white);
             text-decoration: none;
             font-weight: 500;
-            font-size: 24px;
+            font-size: 1rem;
             transition: all 0.3s ease;
             padding: 0.5rem 1rem;
             border-radius: 5px;
@@ -119,15 +121,15 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 clamp(1rem, 4vw, 2rem);
         }
 
         section {
-            padding: 5rem 0;
+            padding: clamp(3rem, 7vw, 5rem) 0;
         }
 
         section h2 {
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 4vw, 2.8rem);
             margin-bottom: 0.5rem;
             color: var(--primary);
             text-align: center;
@@ -148,7 +150,7 @@
         }
 
         h3 {
-            font-size: 1.5rem;
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
             color: var(--secondary);
             margin: 1.5rem 0 0.8rem 0;
         }
@@ -161,7 +163,7 @@
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: clamp(2rem, 5vw, 3rem);
             align-items: center;
             margin-top: 2rem;
         }
@@ -170,7 +172,7 @@
             color: var(--text);
             line-height: 1.8;
             margin-bottom: 1.5rem;
-            font-size: 1.2rem;
+            font-size: 1.125rem;
         }
 
         .about-image {
@@ -209,13 +211,13 @@
         .research-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
             margin-top: 2rem;
         }
 
         .research-card {
             background: var(--white);
-            padding: 2.5rem;
+            padding: clamp(1.5rem, 3vw, 2.5rem);
             border-radius: 12px;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
@@ -237,7 +239,7 @@
         .research-logo {
             display: block;
             width: 75%;
-            height: 220px;
+            height: clamp(160px, 20vw, 220px);
             object-fit: contain;
             margin: 0 auto 1rem;
         }
@@ -245,7 +247,7 @@
         .research-card p {
             color: #000000;
             line-height: 1.8;
-            font-size: 1.2rem;
+            font-size: 1.125rem;
         }
 
         /* ==================== TEAM SECTION ==================== */
@@ -256,13 +258,13 @@
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
             margin-top: 2rem;
         }
 
         .team-card {
             background: #f8f9fb;
-            padding: 2.5rem;
+            padding: clamp(1.5rem, 3vw, 2.5rem);
             border-radius: 12px;
             text-align: center;
             box-shadow: var(--shadow);
@@ -279,8 +281,8 @@
         }
 
         .avatar {
-            width: 180px;
-            height: 180px;
+            width: clamp(140px, 15vw, 180px);
+            height: clamp(140px, 15vw, 180px);
             margin: 0 auto 1.5rem;
             background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
             border-radius: 50%;
@@ -303,14 +305,14 @@
             color: var(--accent);
             font-weight: 600;
             margin-bottom: 1rem;
-            font-size: 0.9rem;
+            font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .member-bio {
             color: var(--gray);
-            font-size: 0.95rem;
+            font-size: 1rem;
             line-height: 1.7;
         }
 
@@ -323,14 +325,14 @@
 
         .alumni-section h3 {
             text-align: center;
-            font-size: 2rem;
+            font-size: 1.75rem;
             margin-bottom: 2.5rem;
             color: var(--primary);
         }
 
         .alumni-container {
             background: var(--white);
-            padding: 2.5rem;
+            padding: clamp(1.25rem, 3vw, 2.5rem);
             border-radius: 12px;
             box-shadow: var(--shadow);
         }
@@ -366,13 +368,13 @@
         .alumni-name {
             font-weight: 600;
             color: var(--primary);
-            font-size: 1.05rem;
+            font-size: 1.0625rem;
         }
 
         .alumni-years {
             color: var(--accent);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             padding: 0.5rem 1rem;
             background-color: var(--light);
             border-radius: 20px;
@@ -387,14 +389,14 @@
 
         .publications-container {
             background: var(--white);
-            padding: 2.5rem;
+            padding: clamp(1.25rem, 3vw, 2.5rem);
             border-radius: 12px;
             margin-top: 2rem;
             box-shadow: var(--shadow);
         }
 
         .publication-item {
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             border-bottom: 1px solid #e8eef5;
             transition: all 0.3s ease;
         }
@@ -413,19 +415,19 @@
             font-weight: 600;
             color: var(--primary);
             margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            font-size: 1.125rem;
         }
 
         .publication-authors {
             color: var(--gray);
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin-bottom: 0.3rem;
         }
 
         .publication-year {
             color: var(--accent);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-bottom: 0.8rem;
         }
 
@@ -434,7 +436,7 @@
             color: var(--accent);
             text-decoration: none;
             font-weight: 600;
-            font-size: 24px;
+            font-size: 1rem;
             transition: all 0.3s ease;
             padding: 0.5rem 1rem;
             border-radius: 5px;
@@ -453,13 +455,13 @@
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
             margin-top: 2rem;
         }
 
         .news-card {
             background: #f8f9fb;
-            padding: 2rem;
+            padding: clamp(1.25rem, 3vw, 2rem);
             border-radius: 12px;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
@@ -477,7 +479,7 @@
         .news-date {
             color: var(--accent);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 1rem;
             margin-bottom: 0.5rem;
         }
 
@@ -488,7 +490,7 @@
         .news-card p {
             color: var(--text);
             line-height: 1.8;
-            font-size: 1rem;
+            font-size: 1.0625rem;
         }
 
         /* ==================== CONTACT SECTION ==================== */
@@ -499,7 +501,6 @@
 
         #contact h2 {
             color: var(--white);
-            font-size: 40px;
         }
 
         #contact h2::after {
@@ -508,7 +509,7 @@
 
         .contact-wrapper {
             background: rgba(255, 255, 255, 0.1);
-            padding: 3rem;
+            padding: clamp(1.5rem, 4vw, 3rem);
             border-radius: 12px;
             max-width: 900px;
             margin: 2rem auto;
@@ -520,7 +521,7 @@
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
         }
 
         .contact-item {
@@ -529,7 +530,7 @@
 
         .contact-label {
             font-weight: 600;
-            font-size: 1.65rem;
+            font-size: 1.25rem;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
@@ -540,7 +541,7 @@
         .contact-info {
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.8;
-            font-size: 1.5rem;
+            font-size: 1.125rem;
         }
 
         .contact-info a {
@@ -548,7 +549,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
-            font-size: 1.5rem;
+            font-size: 1.125rem;
         }
 
         .contact-info a:hover {
@@ -561,7 +562,7 @@
             background-color: #0f2818;
             color: var(--white);
             text-align: center;
-            padding: 2.5rem;
+            padding: 2rem clamp(1rem, 4vw, 2.5rem);
             margin-top: 0;
         }
 
@@ -583,7 +584,7 @@
             color: var(--white);
             padding: 0.5rem 1.2rem;
             border-radius: 25px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
         }
         /* ==================== RESPONSIVE DESIGN ==================== */
@@ -595,26 +596,23 @@
             .nav-links {
                 position: absolute;
                 left: -100%;
-                top: 70px;
+                top: 100%;
                 flex-direction: column;
                 background-color: var(--primary);
                 width: 100%;
                 text-align: center;
                 transition: 0.3s;
-                padding: 2rem 0;
+                padding: 1rem 0;
                 gap: 1rem;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.75rem 1rem;
             }
 
             .nav-links.active {
                 left: 0;
-            }
-
-            section h2 {
-                font-size: 2rem;
-            }
-
-            #contact h2 {
-                font-size: 3rem;
             }
 
             .about-content {
@@ -628,15 +626,7 @@
             }
 
             .contact-wrapper {
-                padding: 2rem 1rem;
-            }
-
-            .navbar {
-                padding: 0 1rem;
-            }
-
-            section {
-                padding: 3rem 0;
+                padding: 1.5rem 1rem;
             }
 
             .alumni-item {
@@ -651,32 +641,12 @@
         }
 
         @media (max-width: 480px) {
-            section h2 {
-                font-size: 1.8rem;
-            }
-
-            #contact h2 {
-                font-size: 2.1rem;
-            }
-
             .nav-links {
                 gap: 0.5rem;
             }
 
             .contact-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .contact-label {
-                font-size: 1.24rem;
-            }
-
-            .contact-info {
-                font-size: 1.125rem;
-            }
-
-            .contact-info a {
-                font-size: 1.125rem;
             }
         }
 
