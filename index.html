@@ -587,6 +587,99 @@
             font-size: 0.9rem;
             font-weight: 600;
         }
+
+        .visitor-counter {
+            margin-top: 0.75rem;
+            padding: 0.55rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            border-radius: 999px;
+            background: transparent;
+            color: var(--white);
+            font: inherit;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .visitor-counter:hover,
+        .visitor-counter:focus-visible {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .visitor-counter:disabled {
+            cursor: wait;
+            opacity: 0.75;
+        }
+
+        .visitor-dialog {
+            width: min(36rem, calc(100% - 2rem));
+            max-height: min(80vh, 40rem);
+            margin: auto;
+            padding: 0;
+            border: 0;
+            border-radius: 12px;
+            color: var(--text);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .visitor-dialog::backdrop {
+            background: rgba(15, 40, 24, 0.72);
+        }
+
+        .visitor-dialog-content {
+            position: relative;
+            padding: 2rem;
+        }
+
+        .visitor-dialog-content h2 {
+            margin: 0 2rem 0.5rem 0;
+            color: var(--primary);
+        }
+
+        .visitor-dialog-note {
+            margin-bottom: 1rem;
+            color: #5c6470;
+            font-size: 0.95rem;
+        }
+
+        .visitor-dialog-close {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.9rem;
+            border: 0;
+            background: transparent;
+            color: var(--text);
+            font-size: 1.75rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .visitor-table-wrapper {
+            max-height: 48vh;
+            overflow-y: auto;
+        }
+
+        .visitor-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .visitor-table th,
+        .visitor-table td {
+            padding: 0.65rem 0.5rem;
+            border-bottom: 1px solid #e5e9ed;
+        }
+
+        .visitor-table th:last-child,
+        .visitor-table td:last-child {
+            text-align: right;
+        }
+
+        .visitor-status {
+            margin: 0.5rem 0;
+        }
+
         /* ==================== RESPONSIVE DESIGN ==================== */
         @media (max-width: 768px) {
             .hamburger {
@@ -647,6 +740,10 @@
 
             .contact-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .visitor-dialog-content {
+                padding: 1.5rem 1rem;
             }
         }
 
@@ -846,7 +943,27 @@
     <!-- ==================== FOOTER ==================== -->
     <footer>
         <p>&copy; 2026 Chen Lab, National Dong Hwa University. All rights reserved.</p>
+        <button class="visitor-counter" id="visitor-counter" type="button" aria-haspopup="dialog" aria-controls="visitor-dialog" disabled>
+            This month's visitors: Loading…
+        </button>
     </footer>
+
+    <dialog class="visitor-dialog" id="visitor-dialog" aria-labelledby="visitor-dialog-title">
+        <div class="visitor-dialog-content">
+            <button class="visitor-dialog-close" id="visitor-dialog-close" type="button" aria-label="Close monthly visitor statistics">&times;</button>
+            <h2 id="visitor-dialog-title">Monthly visitors</h2>
+            <p class="visitor-dialog-note">Estimated unique browsers per month, counted from November 2026. Counts are handled by CounterAPI and may be approximate.</p>
+            <p class="visitor-status" id="visitor-status" role="status" aria-live="polite">Loading monthly visits…</p>
+            <div class="visitor-table-wrapper">
+                <table class="visitor-table">
+                    <thead>
+                        <tr><th scope="col">Month</th><th scope="col">Visitors</th></tr>
+                    </thead>
+                    <tbody id="visitor-months"></tbody>
+                </table>
+            </div>
+        </div>
+    </dialog>
 
     <!-- ==================== JAVASCRIPT ==================== -->
     <script>
@@ -887,6 +1004,138 @@
         document.querySelectorAll('.research-card, .team-card, .news-card').forEach(card => {
             observer.observe(card);
         });
+
+        // ==================== MONTHLY VISITOR COUNTER ====================
+        const visitorCounterButton = document.querySelector('#visitor-counter');
+        const visitorDialog = document.querySelector('#visitor-dialog');
+        const visitorDialogClose = document.querySelector('#visitor-dialog-close');
+        const visitorStatus = document.querySelector('#visitor-status');
+        const visitorMonths = document.querySelector('#visitor-months');
+        const counterNamespace = 'chen-lab-website';
+        const counterStartMonth = '2026-11';
+
+        function formatMonth(date) {
+            return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+        }
+
+        function counterUrl(month, action) {
+            return `https://api.counterapi.dev/v1/${counterNamespace}/visitors-${month}/${action}`;
+        }
+
+        async function fetchVisitorCount(month, action) {
+            const response = await fetch(counterUrl(month, action), {
+                cache: 'no-store',
+                referrerPolicy: 'no-referrer'
+            });
+
+            if (response.status === 404 && action === 'get') {
+                return 0;
+            }
+            if (!response.ok) {
+                throw new Error(`Visitor counter request failed (${response.status}).`);
+            }
+
+            const result = await response.json();
+            const count = Number(result.count);
+            if (!Number.isFinite(count) || count < 0) {
+                throw new Error('Visitor counter returned an invalid count.');
+            }
+            return count;
+        }
+
+        function hasCountedThisMonth(month) {
+            try {
+                return window.localStorage.getItem(`chen-lab-visitor-${month}`) === 'true';
+            } catch (error) {
+                console.warn('Monthly visitor deduplication is unavailable.', error);
+                return false;
+            }
+        }
+
+        function markCountedThisMonth(month) {
+            try {
+                window.localStorage.setItem(`chen-lab-visitor-${month}`, 'true');
+            } catch (error) {
+                console.warn('Monthly visitor deduplication could not be saved.', error);
+            }
+        }
+
+        async function initializeVisitorCounter() {
+            const month = formatMonth(new Date());
+            try {
+                const action = hasCountedThisMonth(month) ? 'get' : 'up';
+                const count = await fetchVisitorCount(month, action);
+                if (action === 'up') {
+                    markCountedThisMonth(month);
+                }
+                visitorCounterButton.textContent = `This month's visitors: ${count.toLocaleString()}`;
+            } catch (error) {
+                console.error('Unable to load the monthly visitor count.', error);
+                visitorCounterButton.textContent = 'Monthly visitor count unavailable';
+            } finally {
+                visitorCounterButton.disabled = false;
+            }
+        }
+
+        function listMonthsSinceCounterStart() {
+            const [year, month] = counterStartMonth.split('-').map(Number);
+            const date = new Date(year, month - 1, 1);
+            const now = new Date();
+            const months = [];
+            while (date <= now) {
+                months.push(formatMonth(date));
+                date.setMonth(date.getMonth() + 1);
+            }
+            return months;
+        }
+
+        async function showMonthlyVisitorCounts() {
+            visitorStatus.textContent = 'Loading monthly visits…';
+            visitorMonths.replaceChildren();
+
+            try {
+                const months = listMonthsSinceCounterStart();
+                const counts = await Promise.all(
+                    months.map(month => fetchVisitorCount(month, 'get'))
+                );
+
+                months.forEach((month, index) => {
+                    const row = document.createElement('tr');
+                    const monthCell = document.createElement('td');
+                    const countCell = document.createElement('td');
+                    const date = new Date(`${month}-01T00:00:00Z`);
+                    monthCell.textContent = date.toLocaleDateString('en', {
+                        year: 'numeric',
+                        month: 'long',
+                        timeZone: 'UTC'
+                    });
+                    countCell.textContent = counts[index].toLocaleString();
+                    row.append(monthCell, countCell);
+                    visitorMonths.append(row);
+                });
+
+                visitorStatus.textContent = months.length
+                    ? ''
+                    : 'Visitor counting has not started yet.';
+            } catch (error) {
+                console.error('Unable to load monthly visitor statistics.', error);
+                visitorStatus.textContent = 'Monthly visitor statistics could not be loaded. Please try again later.';
+            }
+        }
+
+        visitorCounterButton.addEventListener('click', () => {
+            visitorDialog.showModal();
+            showMonthlyVisitorCounts();
+        });
+
+        visitorDialogClose.addEventListener('click', () => visitorDialog.close());
+        visitorDialog.addEventListener('click', event => {
+            if (event.target === visitorDialog) {
+                visitorDialog.close();
+            }
+        });
+
+        initializeVisitorCounter();
     </script>
 </body>
 </html>
