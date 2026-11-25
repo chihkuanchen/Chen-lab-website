@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join Chen Lab at National Dong Hwa University. Graduate student positions with stipends are available.">
+    <title>Join Chen Lab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a472a;
+            --secondary: #2d6a4f;
+            --accent: #40916c;
+            --text: #2b2d42;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text);
+            background: #f5f7fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            min-height: 80px;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            min-height: 80px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            display: block;
+            width: clamp(120px, 12vw, 160px);
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: clamp(0.25rem, 1.2vw, 1.25rem);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            border-radius: 2px;
+            background: var(--white);
+        }
+
+        main {
+            min-height: calc(100vh - 150px);
+            padding: clamp(3rem, 8vw, 6rem) 1rem;
+        }
+
+        .join-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .intro {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .stipend {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            background: #d8f3dc;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .topics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .topic {
+            padding: 1.5rem;
+            border-top: 4px solid var(--accent);
+            border-radius: 10px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .topic h2 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            font-size: 1.35rem;
+        }
+
+        .contact-cta {
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+
+        .contact-cta a {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            background: var(--secondary);
+            color: var(--white);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .contact-cta a:hover,
+        .contact-cta a:focus-visible {
+            background: var(--primary);
+        }
+
+        footer {
+            padding: 1rem;
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1rem 0;
+                background: var(--primary);
+                text-align: center;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar" aria-label="Main navigation">
+            <a class="logo" href="index.html" aria-label="Chen Lab home">
+                <img src="images/ChenLabIcon.png" alt="Chen Lab">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#research">Research</a></li>
+                <li><a href="index.html#team">Team</a></li>
+                <li><a href="index.html#publications">Publications</a></li>
+                <li><a href="index.html#news">News</a></li>
+                <li><a href="join.html" aria-current="page">Join Us</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="join-content">
+            <div class="intro">
+                <h1>Two Graduate Student Positions Available with Stipends</h1>
+                <p class="stipend">Graduate and undergraduate students welcome</p>
+            </div>
+
+            <p>We welcome graduate/undergraduate students. Send me an email if you are interested in:</p>
+            <div class="topics">
+                <article class="topic">
+                    <h2>Computational Biology</h2>
+                    <p>Integrating biology with computation and statistics.</p>
+                </article>
+                <article class="topic">
+                    <h2>Comparative Histology</h2>
+                    <p>Exploring the unique structures and properties of avian tissues.</p>
+                </article>
+                <article class="topic">
+                    <h2>Epigenetics</h2>
+                    <p>Investigating the molecular links between avian aging and behavior.</p>
+                </article>
+            </div>
+
+            <div class="contact-cta">
+                <p>Interested in joining Chen Lab? Get in touch to learn more.</p>
+                <a href="mailto:millerchen2026n@gms.ndhu.edu.tw">Email Chen Lab</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Chen Lab, National Dong Hwa University. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', String(!isExpanded));
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
